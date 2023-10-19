@@ -8,8 +8,9 @@ make
 python llonly.py
 ```
 
-This presently reproduces independently of Numba, but still required Python,
-NumPy, and llvmlite. On my system it produces:
+This presently reproduces independently of Numba, but still requires Python,
+and llvmlite. Loading `libcblas.so` also seems to be required. On my system it
+produces something like:
 
 ```
 (numbadev) gmarkall@gm-agx:~/numbadev/issues/9001$ python llonly.py 
@@ -30,4 +31,4 @@ Aborted (core dumped)
 ```
 
 100 LLVM IR modules are provided in case reproduction takes longer on another
-system, but it seems that 9-10 are usually sufficient.
+system, but it seems that 9-12 are usually sufficient.
