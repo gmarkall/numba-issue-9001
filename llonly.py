@@ -55,13 +55,13 @@ def read_ll(filename, prefix):
     return (funcname, code)
 
 
-lls.append(read_ll('module_0.ll', 'define i32 @nrt_unresolved_abort'))
+lls.append(read_ll('modules/module_0.ll', 'define i32 @nrt_unresolved_abort'))
 
 
 prefix = "define i32 @_ZN8__main__1f"
 
 for i in range(1, 100):
-    lls.append(read_ll(f"module_{i}.ll", prefix))
+    lls.append(read_ll(f"modules/module_{i}.ll", prefix))
 
 
 modules = []
