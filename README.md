@@ -1,16 +1,15 @@
 # Work on Numba Issue 9001
 
-Reproduce on a Jetson AGX Xavier running Ubuntu 20.04, Numba / llvmlite `main`,
-with:
+Reproduce on a Jetson AGX Xavier running Ubuntu 20.04, llvmlite `main`, with:
 
 ```
+ulimit -s 1048576
 make
 python llonly.py
 ```
 
 This presently reproduces independently of Numba, but still requires Python,
-and llvmlite. Loading `libcblas.so` also seems to be required. On my system it
-produces something like:
+and llvmlite. On my system it produces something like:
 
 ```
 (numbadev) gmarkall@gm-agx:~/numbadev/issues/9001$ python llonly.py 
