@@ -2,7 +2,7 @@ import llvmlite.binding as llvm
 import ctypes
 
 dll = ctypes.CDLL('adaptor.so', mode=ctypes.RTLD_GLOBAL)
-cblas = ctypes.CDLL('libcblas.so')
+dll.thread_init()
 
 # All these initializations are required for code generation!
 llvm.initialize()
