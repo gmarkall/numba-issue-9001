@@ -1,2 +1,2 @@
 all:
-	gcc -fPIC -shared adaptor.c -o adaptor.so
+	gcc -std=c11 -Wall -Werror -fPIC -shared adaptor.c -o adaptor.so
