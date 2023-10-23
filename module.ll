@@ -13,16 +13,6 @@ target triple = "aarch64-unknown-linux-gnu"
 @".const.conversion to complex128 failed" = internal constant [32 x i8] c"conversion to complex128 failed\00"
 @PyExc_RuntimeError = external global i8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn writeonly
-define i32 @_ZN8__main__1fB2v1B38c8tJTIcFKzyF2ILShI4CrgQElQb6HczSBAA_3dE5Tuple8UniTupleI10complex128Li1EE([1 x { double, double }]* noalias nocapture writeonly %retptr, { i8*, i32, i8*, i8*, i32 }** noalias nocapture readnone %excinfo, double %arg.y.0.0, double %arg.y.0.1) local_unnamed_addr #0 {
-entry:
-  %.repack = getelementptr inbounds [1 x { double, double }], [1 x { double, double }]* %retptr, i64 0, i64 0, i32 0
-  store double %arg.y.0.0, double* %.repack, align 8
-  %.repack1 = getelementptr inbounds [1 x { double, double }], [1 x { double, double }]* %retptr, i64 0, i64 0, i32 1
-  store double %arg.y.0.1, double* %.repack1, align 8
-  ret i32 0
-}
-
 define i8* @_ZN7cpython8__main__1fB2v1B38c8tJTIcFKzyF2ILShI4CrgQElQb6HczSBAA_3dE5Tuple8UniTupleI10complex128Li1EE(i8* nocapture readnone %py_closure, i8* %py_args, i8* nocapture readnone %py_kws) local_unnamed_addr {
 entry:
   %.5 = alloca i8*, align 8
@@ -90,7 +80,6 @@ entry.endif.endif.endif.endif.endif.endif.endif.endif: ; preds = %entry.endif.en
   %.62.fca.0.load = load double, double* %.fca.0.gep, align 8
   %1 = bitcast [1 x { double, double }]* %.74 to i8*
   call void @llvm.memset.p0i8.i64(i8* noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %.79 = call i32 @_ZN8__main__1fB2v1B38c8tJTIcFKzyF2ILShI4CrgQElQb6HczSBAA_3dE5Tuple8UniTupleI10complex128Li1EE([1 x { double, double }]* nonnull %.74, { i8*, i32, i8*, i8*, i32 }** nonnull undef, double %.62.fca.0.load, double %.62.fca.1.load) #2
   %.89.fca.0.0.load = load double, double* %.fca.0.0.gep, align 8
   %.89.fca.0.1.load = load double, double* %.fca.0.1.gep, align 8
   %.95 = call i8* @PyTuple_New(i32 1)

@@ -54,7 +54,7 @@ def read_ll(filename, prefix):
     return (funcname, code)
 
 
-prefix = "define i32 @_ZN8__main__1f"
+prefix = "define i8* @_ZN7cpython8__main__"
 funcname, code = read_ll(f"module.ll", prefix)
 
 modules = []
