@@ -60,10 +60,10 @@ funcname, code = read_ll(f"module.ll", prefix)
 modules = []
 i = 0
 while True:
-        print(i)
-        current_function_name = f'function_{i}'
-        llvm_ir = code.replace(funcname, current_function_name)
-        mod = compile_ir(engine, llvm_ir)
-        func_ptr = engine.get_function_address(current_function_name)
-        modules.append((mod, func_ptr))
-        i += 1
+    print(i)
+    current_function_name = f'function_{i}'
+    llvm_ir = code.replace(funcname, current_function_name)
+    mod = compile_ir(engine, llvm_ir)
+    func_ptr = engine.get_function_address(current_function_name)
+    modules.append((mod, func_ptr))
+    i += 1
