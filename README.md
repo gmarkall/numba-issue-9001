@@ -29,5 +29,5 @@ uint64_t, uint64_t, uint32_t, int64_t): Assertion `isInt<33>(Result) &&
 Aborted (core dumped)
 ```
 
-100 LLVM IR modules are provided in case reproduction takes longer on another
-system, but it seems that 9-12 are usually sufficient.
+Usually 9-12 iterations of the loop (the index is printed out for each
+iteration) are sufficient.
