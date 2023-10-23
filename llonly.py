@@ -49,20 +49,21 @@ def read_ll(filename, prefix):
         code = f.read()
         for line in code.splitlines():
             if prefix in line:
-                funcname = line.split()[2][1:].split(')')[0]
+                funcname = line.split()[2][1:].split(')')[0].split('(')[0]
                 break
     return (funcname, code)
 
 
 prefix = "define i32 @_ZN8__main__1f"
-
-for i in range(1, 100):
-    lls.append(read_ll(f"modules/module_{i}.ll", prefix))
-
+funcname, code = read_ll(f"module.ll", prefix)
 
 modules = []
-for i, (funcname, llvm_ir) in enumerate(lls):
+i = 0
+while True:
         print(i)
+        current_function_name = f'function_{i}'
+        llvm_ir = code.replace(funcname, current_function_name)
         mod = compile_ir(engine, llvm_ir)
-        func_ptr = engine.get_function_address(funcname)
+        func_ptr = engine.get_function_address(current_function_name)
         modules.append((mod, func_ptr))
+        i += 1
