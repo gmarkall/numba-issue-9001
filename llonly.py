@@ -2,7 +2,7 @@ import llvmlite.binding as llvm
 import ctypes
 
 dll = ctypes.CDLL('adaptor.so', mode=ctypes.RTLD_GLOBAL)
-dll.thread_init()
+dll.mem_init()
 
 # All these initializations are required for code generation!
 llvm.initialize()
