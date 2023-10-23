@@ -117,25 +117,6 @@ declare i8* @PyComplex_FromDoubles(double, double) local_unnamed_addr
 
 declare i32 @PyTuple_SetItem(i8*, i32, i8*) local_unnamed_addr
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn writeonly
-define [1 x { double, double }] @cfunc._ZN8__main__1fB2v1B38c8tJTIcFKzyF2ILShI4CrgQElQb6HczSBAA_3dE5Tuple8UniTupleI10complex128Li1EE({} %.1, [1 x { double, double }] %.2) local_unnamed_addr #0 {
-entry:
-  %.4 = alloca [1 x { double, double }], align 8
-  %.fca.0.0.gep = getelementptr inbounds [1 x { double, double }], [1 x { double, double }]* %.4, i64 0, i64 0, i32 0
-  %.fca.0.1.gep = getelementptr inbounds [1 x { double, double }], [1 x { double, double }]* %.4, i64 0, i64 0, i32 1
-  %.8 = extractvalue [1 x { double, double }] %.2, 0
-  %extracted.real = extractvalue { double, double } %.8, 0
-  %extracted.imag = extractvalue { double, double } %.8, 1
-  %0 = bitcast [1 x { double, double }]* %.4 to i8*
-  call void @llvm.memset.p0i8.i64(i8* noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %.9 = call i32 @_ZN8__main__1fB2v1B38c8tJTIcFKzyF2ILShI4CrgQElQb6HczSBAA_3dE5Tuple8UniTupleI10complex128Li1EE([1 x { double, double }]* nonnull %.4, { i8*, i32, i8*, i8*, i32 }** nonnull undef, double %extracted.real, double %extracted.imag) #2
-  %.19.fca.0.0.load = load double, double* %.fca.0.0.gep, align 8
-  %.19.fca.0.0.insert = insertvalue [1 x { double, double }] poison, double %.19.fca.0.0.load, 0, 0
-  %.19.fca.0.1.load = load double, double* %.fca.0.1.gep, align 8
-  %.19.fca.0.1.insert = insertvalue [1 x { double, double }] %.19.fca.0.0.insert, double %.19.fca.0.1.load, 0, 1
-  ret [1 x { double, double }] %.19.fca.0.1.insert
-}
-
 ; Function Attrs: argmemonly nofree nounwind willreturn writeonly
 declare void @llvm.memset.p0i8.i64(i8* nocapture writeonly, i8, i64, i1 immarg) #1
 
