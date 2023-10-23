@@ -3,7 +3,6 @@
 Reproduce on a Jetson AGX Xavier running Ubuntu 20.04, llvmlite `main`, with:
 
 ```
-ulimit -s 1048576
 make
 python llonly.py
 ```
