@@ -54,9 +54,6 @@ def read_ll(filename, prefix):
     return (funcname, code)
 
 
-lls.append(read_ll('modules/module_0.ll', 'define i32 @nrt_unresolved_abort'))
-
-
 prefix = "define i32 @_ZN8__main__1f"
 
 for i in range(1, 100):
